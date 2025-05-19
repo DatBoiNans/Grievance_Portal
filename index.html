@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grievance Portal for My Babygirl</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-image: url('background.jpg'); /* Replace with your image URL */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 400px;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    input, textarea, select, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      background-color: #ff69b4;
+      color: white;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="loginPage">
+    <h1>Welcome, Babygirl 💖</h1>
+    <img src="photo-of-us.jpg" alt="Photo of Us" /> <!-- Replace with actual image -->
+    <input type="email" id="email" placeholder="Email ID" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button onclick="login()">Login</button>
+  </div>
+
+  <div class="container hidden" id="formPage">
+    <h2>Submit a grievance 🌹</h2>
+    <input type="text" id="grievanceTitle" placeholder="Title" />
+    <textarea id="bothering" rows="3" placeholder="What's bothering my babygirl"></textarea>
+    <select id="mood">
+      <option value="">Mood</option>
+      <option value="Sad">Sad</option>
+      <option value="Annoyed">Annoyed</option>
+      <option value="Angry">Angry</option>
+      <option value="Lowkey Mad">Lowkey Mad</option>
+    </select>
+    <select id="severity">
+      <option value="">Severity</option>
+      <option value="Mild">Mild</option>
+      <option value="Moderate">Moderate</option>
+      <option value="Serious">Serious</option>
+      <option value="Life or Death (jk)">Life or Death (jk)</option>
+    </select>
+    <textarea id="fixIt" rows="2" placeholder="What would fix it?"></textarea>
+    <button onclick="submitGrievance()">Submit</button>
+  </div>
+
+  <script>
+    function login() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      // Replace with real validation if needed
+      if (email && password) {
+        document.getElementById('loginPage').classList.add('hidden');
+        document.getElementById('formPage').classList.remove('hidden');
+      } else {
+        alert('Please enter both email and password');
+      }
+    }
+
+    function submitGrievance() {
+      const title = document.getElementById('grievanceTitle').value;
+      const bothering = document.getElementById('bothering').value;
+      const mood = document.getElementById('mood').value;
+      const severity = document.getElementById('severity').value;
+      const fix = document.getElementById('fixIt').value;
+
+      if (!title || !bothering || !mood || !severity || !fix) {
+        alert('Fill out all fields, love! 💌');
+        return;
+      }
+
+      alert('Grievance submitted! I'll fix it right away 💞');
+      // You can send this data somewhere or save it later
+    }
+  </script>
+</body>
+</html>
